@@ -33,12 +33,12 @@ riesznet <- function(data,
                      optimizer = torch::optim_adam,
                      verbose = TRUE) {
 
-  assert_data_frame(data)
+  checkmate::assert_data_frame(data)
   lapply(shifted, function(x) {
-    assert_data_frame(x, nrows = nrow(data), ncols = ncol(data))
-    assert_set_equal(names(x), names(data))
+    checkmate::assert_data_frame(x, nrows = nrow(data), ncols = ncol(data))
+    checkmate::assert_set_equal(names(x), names(data))
   })
-  assert_function(.f, args = names(shifted))
+  checkmate::assert_function(.f, args = names(shifted))
 
   ds <- make_dataset(data, shifted, weights)
 

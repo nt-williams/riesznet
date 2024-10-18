@@ -11,7 +11,7 @@ riesznet(
   net = NULL,
   weights = NULL,
   max_lr = 0.1,
-  epochs = 100,
+  epochs = 500,
   batch_size = 32,
   valid_ratio = 0.2,
   shuffle = TRUE,
