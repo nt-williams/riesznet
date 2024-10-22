@@ -2,7 +2,7 @@
 predict.riesznet <- function(fit, newdata) {
   model <- fit$fit$model
   vars <- fit$vars
-  model(as_torch(newdata[, vars])$to(device = model$device))
+  model(as_torch(one_hot_encode(newdata[, vars]))$to(device = model$device))
 }
 
 #' @export

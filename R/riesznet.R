@@ -52,7 +52,7 @@ riesznet <- function(data,
   valid_dl <- torch::dataloader(valid_ds, batch_size = batch_size, shuffle = shuffle)
 
   if (is.null(net)) {
-    d_in <- ncol(data)
+    d_in <- ds$data$size()[2]
     hidden <- ceiling(mean(c(ncol(data), 1)))
     net <- default_nn(d_in, hidden)
   }

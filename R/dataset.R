@@ -6,7 +6,7 @@ make_dataset <- function(x, new_x, weights = NULL) {
       if (!is.null(weights)) {
         self$weights <- as_torch(weights)
       } else {
-        self$weights <- torch::torch_ones(nrow(data))
+        self$weights <- torch::torch_ones(nrow(x))
       }
 
       self$data <- as_torch(one_hot_encode(x))
